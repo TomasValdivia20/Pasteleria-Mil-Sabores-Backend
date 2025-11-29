@@ -32,6 +32,7 @@ public class Producto {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Categoria categoria;
 
-    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, orphanRemoval = true) // <--- orphanRemoval ayuda a actualizar listas
     private List<VarianteProducto> variantes;
+
 }
